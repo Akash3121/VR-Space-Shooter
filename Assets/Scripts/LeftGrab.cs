@@ -85,6 +85,7 @@ public class LeftGrab : MonoBehaviour
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class LeftGrab : MonoBehaviour
@@ -132,7 +133,7 @@ public class LeftGrab : MonoBehaviour
 
                 /*Vector3 throwVelocity = (this.transform.position - lastControllerPosition) * throwForce;
                 grabbedRigidbody.velocity = throwVelocity;*/
-                grabbed.transform.position = new Vector3(2.99600005f, 0.758000016f, 1.21700001f);
+                grabbed.transform.position = new Vector3(2.99600005f, 0.768000016f, 1.21700001f);
                 const float Y = 90.2745209f;
                 Quaternion newRotation = Quaternion.Euler(0f, Y, 0f); // Create a new rotation quaternion with the desired y-axis rotation
 
@@ -183,7 +184,16 @@ public class LeftGrab : MonoBehaviour
         if (bulletPrefab != null)
         {
             // Create a new bullet at the gun's position and rotation
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            // GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            // Create a new bullet at the gun's position with a specific rotation
+            Vector3 bulletPos = transform.position;
+            // bulletPos.x += 1f;
+            bulletPos.x += 0.07f;
+            bulletPos.y += 0.09f;
+
+            GameObject bullet = Instantiate(bulletPrefab, bulletPos, Quaternion.Euler(transform.eulerAngles.x + 90f, transform.eulerAngles.y , transform.eulerAngles.z ));
+            // GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0f, 0f, 90f));
+
 
             // Get the Rigidbody component of the bullet
             Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
