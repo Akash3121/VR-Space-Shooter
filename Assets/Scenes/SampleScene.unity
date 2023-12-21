@@ -1470,8 +1470,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbableTag: RightGrabbable
-  throwForce: 7
   controller: {fileID: 1479316953}
+  bulletPrefab: {fileID: 620984962}
+  bulletSpeed: 10
 --- !u!1001 &1440064212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1983,7 +1984,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbableTag: LeftGrabbable
-  throwForce: 7
   controller: {fileID: 456581504}
   bulletPrefab: {fileID: 620984962}
   bulletSpeed: 10
