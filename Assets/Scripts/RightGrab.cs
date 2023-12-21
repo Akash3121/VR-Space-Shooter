@@ -26,7 +26,7 @@ public class RightGrab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (OVRInput.GetDown(OVRInput.Button.Three)) // Button X
+        // if (OVRInput.GetDown(OVRInput.Button.One)) // Button A
         if (OVRInput.Get(OVRInput.Button.One))
         {
             isGrabbable = !isGrabbable;
