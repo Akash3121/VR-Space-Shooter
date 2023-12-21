@@ -63,7 +63,8 @@ public class LeftGrab : MonoBehaviour
                 grabbed.transform.position = this.transform.position;
                 grabbed.transform.rotation = this.transform.rotation;
 
-                if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+                if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch))
+                // if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
                 // if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)) // Primary trigger click
                 // if (OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger) > 0.9f) // LIndexTrigger press
                 {
