@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
  
 public class RightGrab : MonoBehaviour
 {
     public string grabbableTag = "RightGrabbable";
-    public float throwForce = 7f;
 
     private GameObject grabbed = null;
     private Vector3 grabbedOffset = Vector3.zero;
     private Vector3 lastControllerPosition;
     private bool isGrabbable = false;
     public GameObject controller;
+
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +26,7 @@ public class RightGrab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (OVRInput.GetDown(OVRInput.Button.Three)) // Button X
+        // if (OVRInput.GetDown(OVRInput.Button.One)) // Button A
         if (OVRInput.Get(OVRInput.Button.One))
         {
             isGrabbable = !isGrabbable;
@@ -41,8 +44,7 @@ public class RightGrab : MonoBehaviour
                 Rigidbody grabbedRigidbody = grabbed.GetComponent<Rigidbody>();
                 grabbedRigidbody.isKinematic = false;
 
-                /*Vector3 throwVelocity = (this.transform.position - lastControllerPosition) * throwForce;
-                grabbedRigidbody.velocity = throwVelocity;*/
+                
                 grabbed.transform.position = new Vector3(2.98699999f, 0.776000023f, 0.510999978f);
                 const float Y = 90.2745209f;
                 Quaternion newRotation = Quaternion.Euler(0f, Y, 0f); // Create a new rotation quaternion with the desired y-axis rotation
@@ -59,6 +61,12 @@ public class RightGrab : MonoBehaviour
                 grabbed.transform.position = this.transform.position;
                 grabbed.transform.rotation = this.transform.rotation;
 
+                if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch))
+                // if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)) // Primary trigger click
+                // if (OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger) > 0.9f) // LIndexTrigger press
+                {
+                    ShootBullet();
+                }
             }
             lastControllerPosition = this.transform.position;
         }
@@ -78,6 +86,33 @@ public class RightGrab : MonoBehaviour
                 grabbed.GetComponent<Rigidbody>().isKinematic = true;
 
                 controller.SetActive(false);
+            }
+        }
+
+    }
+
+    void ShootBullet()
+    {
+        if (bulletPrefab != null)
+        {
+            // Create a new bullet at the gun's position and rotation
+            // GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            // Create a new bullet at the gun's position with a specific rotation
+            Vector3 bulletPos = transform.position;
+            // bulletPos.x += 1f;
+            bulletPos.x += 0.07f;
+            bulletPos.y += 0.09f;
+
+            GameObject bullet = Instantiate(bulletPrefab, bulletPos, Quaternion.Euler(transform.eulerAngles.x + 90f, transform.eulerAngles.y, transform.eulerAngles.z));
+            // GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0f, 0f, 90f));
+
+
+            // Get the Rigidbody component of the bullet
+            Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+
+            if (bulletRigidbody != null)
+            {
+                bulletRigidbody.velocity = transform.forward * bulletSpeed;
             }
         }
     }
