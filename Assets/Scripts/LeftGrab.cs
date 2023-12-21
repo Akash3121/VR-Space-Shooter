@@ -102,6 +102,7 @@ public class LeftGrab : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
 
+    public GameObject sphere;
 
     // Start is called before the first frame update
     void Start()
@@ -170,13 +171,14 @@ public class LeftGrab : MonoBehaviour
             if (isGrabbable && other.gameObject.tag == grabbableTag)
             {
                 grabbed = other.gameObject;
-                grabbedOffset = grabbed.transform.position - this.transform.position; // here this refers to controller, subtracting current object position(this) with initial object position(grabbed) and putting it in grabbedOffset, this grabbedOffset is added to this.transform in update function
+                grabbedOffset = grabbed.transform.position - this.transform.position; 
 
                 grabbed.GetComponent<Rigidbody>().isKinematic = true;
 
                 controller.SetActive(false);
             }
         }
+
     }
 
     void ShootBullet()
