@@ -6,7 +6,6 @@ using UnityEngine;
 public class LeftGrab : MonoBehaviour
 {
     public string grabbableTag = "LeftGrabbable";
-    public float throwForce = 7f;
 
     private GameObject grabbed = null;
     private Vector3 grabbedOffset = Vector3.zero;
@@ -47,8 +46,7 @@ public class LeftGrab : MonoBehaviour
                 Rigidbody grabbedRigidbody = grabbed.GetComponent<Rigidbody>();
                 grabbedRigidbody.isKinematic = false;
 
-                /*Vector3 throwVelocity = (this.transform.position - lastControllerPosition) * throwForce;
-                grabbedRigidbody.velocity = throwVelocity;*/
+                
                 grabbed.transform.position = new Vector3(2.99600005f, 0.768000016f, 1.21700001f);
                 const float Y = 90.2745209f;
                 Quaternion newRotation = Quaternion.Euler(0f, Y, 0f); // Create a new rotation quaternion with the desired y-axis rotation
