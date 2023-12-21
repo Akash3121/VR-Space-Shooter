@@ -48,7 +48,15 @@ public class AsteroidSpawner : MonoBehaviour
         asteroid.tag = "Asteroid";
 
         // Add a Collider component
-        Collider asteroidCollider = asteroid.AddComponent<BoxCollider>(); // Change the collider type as needed
+        Collider asteroidCollider = asteroid.GetComponent<BoxCollider>();
+        if (asteroidCollider == null)
+        {
+            asteroidCollider = asteroid.AddComponent<BoxCollider>();
+            asteroidCollider.isTrigger = true;
+        }
+        asteroidCollider.isTrigger = true;
+
+        // Collider asteroidCollider = asteroid.AddComponent<BoxCollider>(); // Change the collider type as needed
 
         // Add a Rigidbody component
         Rigidbody asteroidRigidbody = asteroid.AddComponent<Rigidbody>();
