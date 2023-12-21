@@ -5,7 +5,6 @@ using UnityEngine;
 public class RightGrab : MonoBehaviour
 {
     public string grabbableTag = "RightGrabbable";
-    public float throwForce = 7f;
 
     private GameObject grabbed = null;
     private Vector3 grabbedOffset = Vector3.zero;
