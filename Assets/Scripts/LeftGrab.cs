@@ -200,7 +200,6 @@ public class LeftGrab : MonoBehaviour
 
             if (bulletRigidbody != null)
             {
-                // Set the velocity of the bullet to move it forward
                 bulletRigidbody.velocity = transform.forward * bulletSpeed;
             }
         }
