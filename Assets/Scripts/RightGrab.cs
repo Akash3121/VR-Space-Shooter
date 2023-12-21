@@ -44,8 +44,7 @@ public class RightGrab : MonoBehaviour
                 Rigidbody grabbedRigidbody = grabbed.GetComponent<Rigidbody>();
                 grabbedRigidbody.isKinematic = false;
 
-                /*Vector3 throwVelocity = (this.transform.position - lastControllerPosition) * throwForce;
-                grabbedRigidbody.velocity = throwVelocity;*/
+                
                 grabbed.transform.position = new Vector3(2.98699999f, 0.776000023f, 0.510999978f);
                 const float Y = 90.2745209f;
                 Quaternion newRotation = Quaternion.Euler(0f, Y, 0f); // Create a new rotation quaternion with the desired y-axis rotation
