@@ -53,8 +53,9 @@ public class AsteroidSpawner : MonoBehaviour
         // Add a Rigidbody component
         Rigidbody asteroidRigidbody = asteroid.AddComponent<Rigidbody>();
 
+        asteroidRigidbody.useGravity = false;
 
-
+        asteroidRigidbody.isKinematic = false;
 
     }
 
