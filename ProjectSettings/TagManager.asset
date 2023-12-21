@@ -9,6 +9,7 @@ TagManager:
   - Asteroid
   - RightGrabbable
   - Bullet
+  - cube
   layers:
   - Default
   - TransparentFX
