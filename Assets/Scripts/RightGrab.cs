@@ -61,6 +61,12 @@ public class RightGrab : MonoBehaviour
                 grabbed.transform.position = this.transform.position;
                 grabbed.transform.rotation = this.transform.rotation;
 
+                if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+                // if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)) // Primary trigger click
+                // if (OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger) > 0.9f) // LIndexTrigger press
+                {
+                    ShootBullet();
+                }
             }
             lastControllerPosition = this.transform.position;
         }
@@ -80,6 +86,32 @@ public class RightGrab : MonoBehaviour
                 grabbed.GetComponent<Rigidbody>().isKinematic = true;
 
                 controller.SetActive(false);
+            }
+        }
+
+        void ShootBullet()
+        {
+            if (bulletPrefab != null)
+            {
+                // Create a new bullet at the gun's position and rotation
+                // GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                // Create a new bullet at the gun's position with a specific rotation
+                Vector3 bulletPos = transform.position;
+                // bulletPos.x += 1f;
+                bulletPos.x += 0.07f;
+                bulletPos.y += 0.09f;
+
+                GameObject bullet = Instantiate(bulletPrefab, bulletPos, Quaternion.Euler(transform.eulerAngles.x + 90f, transform.eulerAngles.y, transform.eulerAngles.z));
+                // GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0f, 0f, 90f));
+
+
+                // Get the Rigidbody component of the bullet
+                Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+
+                if (bulletRigidbody != null)
+                {
+                    bulletRigidbody.velocity = transform.forward * bulletSpeed;
+                }
             }
         }
     }
