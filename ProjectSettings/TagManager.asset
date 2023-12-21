@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LeftGrabbable
+  - Laser
+  - Asteroid
+  - RightGrabbable
+  - Bullet
+  - cube
   layers:
   - Default
   - TransparentFX
