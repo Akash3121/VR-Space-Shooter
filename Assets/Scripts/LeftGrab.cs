@@ -35,7 +35,6 @@ public class LeftGrab : MonoBehaviour
         }
 
         if (grabbed != null) // holding the object
-        // if (isGrabbable)
         {
 
             if (!isGrabbable)
