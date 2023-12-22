@@ -29,7 +29,7 @@ public class BulletCollisionHandler : MonoBehaviour
 {
     public GameObject explosion;
     public ScoreManager scoreManager;
-    public int asteroidScore = 10; // Adjust the score value as needed
+    public int asteroidScore = 10; 
 
     private void OnTriggerEnter(Collider other)
     {
