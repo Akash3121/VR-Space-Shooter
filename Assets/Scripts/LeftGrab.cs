@@ -38,7 +38,6 @@ public class LeftGrab : MonoBehaviour
         // if (isGrabbable)
         {
 
-            // if (OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger) < 0.05f) // if clicked trigger very slightly - released
             if (!isGrabbable)
             {
                 //trigger relased
