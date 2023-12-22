@@ -96,8 +96,6 @@ public class RightGrab : MonoBehaviour
         if (bulletPrefab != null)
         {
             // Create a new bullet at the gun's position and rotation
-            // GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            // Create a new bullet at the gun's position with a specific rotation
             Vector3 bulletPos = transform.position;
             // bulletPos.x += 1f;
             bulletPos.x += 0.07f;
