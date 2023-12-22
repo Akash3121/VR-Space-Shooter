@@ -3,7 +3,7 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText; // Reference to the Text (TMP) component
+    public TextMeshProUGUI scoreText; 
 
     private int score = 0;
 
