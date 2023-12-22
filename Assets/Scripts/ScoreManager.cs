@@ -17,32 +17,7 @@ public class ScoreManager : MonoBehaviour
     }
 }
 */
-/*
-using UnityEngine;
-using UnityEngine.UI;
 
-public class ScoreManager : MonoBehaviour
-{
-    public Text scoreText;
-    private int score = 0;
-
-    // Call this method to update the score
-    public void UpdateScore(int points)
-    {
-        score += points;
-        UpdateScoreUI();
-    }
-
-    // Update the score UI
-    void UpdateScoreUI()
-    {
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + score.ToString();
-        }
-    }
-}
-*/
 
 using UnityEngine;
 using TMPro;
