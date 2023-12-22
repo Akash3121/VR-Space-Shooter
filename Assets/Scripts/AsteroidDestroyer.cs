@@ -22,7 +22,6 @@ public class AsteroidDestroyer : MonoBehaviour
         sphere.SetActive(true);
 
         // Check if the object that entered the trigger has the "Asteroid" tag
-        // if (other.CompareTag("Asteroid"))
         if (other.CompareTag("cube"))
         {
             other.gameObject.SetActive(false);
@@ -32,7 +31,6 @@ public class AsteroidDestroyer : MonoBehaviour
             Rigidbody asteroidRigidbody = other.GetComponent<Rigidbody>();
             if (asteroidRigidbody != null)
             {
-                // You can perform additional actions specific to the asteroid here
 
                 // Destroy the asteroid
                 Destroy(other.gameObject);

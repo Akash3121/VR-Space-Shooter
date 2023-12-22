@@ -1,55 +1,9 @@
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ScoreManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
-*/
-/*
-using UnityEngine;
-using UnityEngine.UI;
-
-public class ScoreManager : MonoBehaviour
-{
-    public Text scoreText;
-    private int score = 0;
-
-    // Call this method to update the score
-    public void UpdateScore(int points)
-    {
-        score += points;
-        UpdateScoreUI();
-    }
-
-    // Update the score UI
-    void UpdateScoreUI()
-    {
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + score.ToString();
-        }
-    }
-}
-*/
-
 using UnityEngine;
 using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText; // Reference to the Text (TMP) component
+    public TextMeshProUGUI scoreText; 
 
     private int score = 0;
 

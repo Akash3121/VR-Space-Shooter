@@ -35,14 +35,11 @@ public class LeftGrab : MonoBehaviour
         }
 
         if (grabbed != null) // holding the object
-        // if (isGrabbable)
         {
 
-            // if (OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger) < 0.05f) // if clicked trigger very slightly - released
             if (!isGrabbable)
             {
                 //trigger relased
-                //grabbed.GetComponent<Rigidbody>().isKinematic = false;
                 Rigidbody grabbedRigidbody = grabbed.GetComponent<Rigidbody>();
                 grabbedRigidbody.isKinematic = false;
 
@@ -52,21 +49,16 @@ public class LeftGrab : MonoBehaviour
                 Quaternion newRotation = Quaternion.Euler(0f, Y, 0f); // Create a new rotation quaternion with the desired y-axis rotation
 
                 grabbed.transform.rotation = newRotation;
-                // grabbed.transform.rotation = new Vector3(x: 0.0f, y: Y, z: 0.0f);
                 grabbed = null;
 
                 controller.SetActive(true);
             }
             else // holded the controller
             {
-                // grabbed.transform.position = this.transform.position + grabbedOffset;
                 grabbed.transform.position = this.transform.position;
                 grabbed.transform.rotation = this.transform.rotation;
 
                 if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch))
-                // if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                // if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)) // Primary trigger click
-                // if (OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger) > 0.9f) // LIndexTrigger press
                 {
                         ShootBullet();
                 }
