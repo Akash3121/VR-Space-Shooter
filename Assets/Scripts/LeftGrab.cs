@@ -52,7 +52,6 @@ public class LeftGrab : MonoBehaviour
                 Quaternion newRotation = Quaternion.Euler(0f, Y, 0f); // Create a new rotation quaternion with the desired y-axis rotation
 
                 grabbed.transform.rotation = newRotation;
-                // grabbed.transform.rotation = new Vector3(x: 0.0f, y: Y, z: 0.0f);
                 grabbed = null;
 
                 controller.SetActive(true);
