@@ -29,7 +29,8 @@ public class BulletCollisionHandler : MonoBehaviour
 {
     public GameObject explosion;
     public ScoreManager scoreManager;
-    public int asteroidScore = 10; 
+    public int asteroidScore = 10;
+    public AudioClip explosionSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,6 +41,19 @@ public class BulletCollisionHandler : MonoBehaviour
 
             // Get the ScoreManager from the scene
             ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+
+            if (explosionSound != null)
+            {
+                // Create an AudioSource
+                AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.clip = explosionSound;
+
+                // Play the sound
+                audioSource.Play();
+
+                // Destroy the AudioSource after the sound has played
+                Destroy(audioSource, explosionSound.length);
+            }
 
             if (scoreManager != null)
             {
