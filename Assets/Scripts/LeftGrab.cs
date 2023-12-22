@@ -42,7 +42,6 @@ public class LeftGrab : MonoBehaviour
             if (!isGrabbable)
             {
                 //trigger relased
-                //grabbed.GetComponent<Rigidbody>().isKinematic = false;
                 Rigidbody grabbedRigidbody = grabbed.GetComponent<Rigidbody>();
                 grabbedRigidbody.isKinematic = false;
 
