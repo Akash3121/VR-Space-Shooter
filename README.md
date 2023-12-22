@@ -1,7 +1,3 @@
-# VR-Space-Shooter
- 
-
-<!-- ```markdown -->
 # VR Space Shooter
 
 Welcome to the VR Space Shooter project! This virtual reality game allows you to experience an immersive space shooting adventure.
