@@ -59,7 +59,6 @@ public class LeftGrab : MonoBehaviour
             }
             else // holded the controller
             {
-                // grabbed.transform.position = this.transform.position + grabbedOffset;
                 grabbed.transform.position = this.transform.position;
                 grabbed.transform.rotation = this.transform.rotation;
 
